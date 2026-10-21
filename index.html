@@ -3,36 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Our Menus · Gillson’s Brasserie, Sheffield</title>
-<meta name="description" content="Classic brasserie cooking on Ecclesall Road, Sheffield. À la carte, prix fixe lunch, Sunday roasts, wine and cocktails at Gillson’s Brasserie.">
+<title>Menus | Gillson’s Brasserie, Ecclesall Road, Sheffield</title>
+<meta name="description" content="À la carte, prix fixe lunch, Sunday roasts, wine and cocktails at Gillson’s Brasserie on Ecclesall Road, Sheffield.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#1a281f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Menus at Gillson’s Brasserie">
+<meta property="og:description" content="Classic brasserie cooking on Ecclesall Road, Sheffield.">
+<meta property="og:image" content="https://andrewgunn.github.io/gillsons/img/og.jpg">
+<meta property="og:url" content="https://andrewgunn.github.io/gillsons/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=League+Spartan:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hero.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=League+Spartan:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-2200.webp" imagesrcset="img/hero-1200.webp 1200w, img/hero-2200.webp 2200w" imagesizes="100vw" fetchpriority="high">
 <style>
 :root {
   --forest: #1a281f;
-  --forest-2: #223428;
+  --forest-deep: #142019;
   --sage: #4c6b4d;
-  --sage-soft: #8fa58d;
   --cream: #f5f3ed;
   --paper: #fbfaf6;
-  --linen: #ece8dc;
   --brass: #b48a4f;
   --brass-soft: #d8bf91;
   --ink: #1f2a22;
   --muted: #5d685f;
-  --rule: rgba(26, 40, 31, .16);
+  --rule: rgba(26, 40, 31, .14);
 
   --serif: "Cormorant Garamond", "Minion Pro", Georgia, serif;
   --sans: "League Spartan", "Helvetica Neue", Arial, sans-serif;
-  --script: "Cormorant Garamond", Georgia, serif;
 
   --gutter: clamp(16px, 4vw, 48px);
   --max: 1320px;
+  --header: 84px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -44,6 +48,7 @@ body {
   font-family: var(--serif);
   font-size: 19px;
   line-height: 1.5;
+  font-variant-numeric: lining-nums;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -51,25 +56,17 @@ img { display: block; max-width: 100%; }
 a { color: inherit; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
-
-.eyebrow {
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: .28em;
-  text-transform: uppercase;
-}
-.script { font-family: var(--script); font-style: italic; font-weight: 400; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* ---------- Buttons ---------- */
+/* Buttons */
 .btn {
   display: inline-flex; align-items: center; gap: .7em;
   padding: 15px 26px 13px;
   font-family: var(--sans); font-size: 12px; font-weight: 500;
-  letter-spacing: .24em; text-transform: uppercase; text-decoration: none;
+  letter-spacing: .2em; text-transform: uppercase; text-decoration: none;
   border: 1px solid currentColor;
-  transition: background .35s, color .35s, border-color .35s;
+  transition: background .3s, color .3s, border-color .3s;
   white-space: nowrap;
 }
 .btn--brass { background: var(--brass); border-color: var(--brass); color: var(--forest); }
@@ -78,11 +75,11 @@ button { font: inherit; color: inherit; }
 .btn--ghost:hover { background: var(--cream); color: var(--forest); border-color: var(--cream); }
 .btn svg { width: 14px; height: 14px; }
 
-/* ---------- Top bar & header ---------- */
+/* Top bar */
 .topbar {
   background: var(--forest);
   color: rgba(245,243,237,.72);
-  font-family: var(--sans); font-size: 13px; letter-spacing: .04em;
+  font-family: var(--sans); font-size: 13px; letter-spacing: .03em;
   border-bottom: 1px solid rgba(245,243,237,.1);
 }
 .topbar .wrap { display: flex; justify-content: space-between; align-items: center; height: 40px; gap: 16px; }
@@ -92,32 +89,28 @@ button { font: inherit; color: inherit; }
   display: inline-block; width: 1px; height: 12px; margin: 0 16px;
   background: currentColor; opacity: .35; vertical-align: -1px;
 }
-.topbar .hide-sm { display: inline; }
 
+/* Header */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(26,40,31,.96);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: var(--forest);
   color: var(--cream);
   transition: box-shadow .3s;
 }
 .site-header.is-stuck { box-shadow: 0 10px 30px -18px rgba(0,0,0,.6); }
-.site-header .wrap {
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-  height: 84px;
-}
+.site-header .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: var(--header); }
 .primary-nav { display: flex; gap: 30px; }
 .primary-nav a {
-  font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase;
-  text-decoration: none; color: rgba(245,243,237,.8); padding: 6px 0; position: relative;
+  font-family: var(--sans); font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase;
+  text-decoration: none; color: rgba(245,243,237,.78); padding: 6px 0; position: relative;
+  transition: color .2s;
 }
 .primary-nav a::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--brass);
-  transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+  transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
 }
-.primary-nav a:hover, .primary-nav a[aria-current] { color: var(--cream); }
-.primary-nav a:hover::after, .primary-nav a[aria-current]::after { transform: scaleX(1); }
+.primary-nav a:hover { color: var(--cream); }
+.primary-nav a:hover::after { transform: scaleX(1); }
 .brand { display: block; width: 124px; color: var(--cream); }
 .brand svg { width: 100%; height: auto; display: block; }
 .header-cta { justify-self: end; }
@@ -132,287 +125,244 @@ button { font: inherit; color: inherit; }
   display: none; background: var(--forest); color: var(--cream);
   padding: 8px var(--gutter) 28px; border-top: 1px solid rgba(245,243,237,.1);
 }
-.drawer a {
+.drawer a:not(.btn) {
   display: block; padding: 14px 0; text-decoration: none; border-bottom: 1px solid rgba(245,243,237,.08);
-  font-family: var(--serif); font-size: 24px;
+  font-size: 24px;
 }
 .drawer .btn { margin-top: 22px; }
 
-/* ---------- Hero ---------- */
+/* Hero */
 .hero {
   position: relative; min-height: min(86vh, 820px); display: flex; align-items: flex-end;
   color: var(--cream); overflow: hidden; background: var(--forest);
 }
-.hero__img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 40%;
-  transform: scale(1.06); animation: settle 2.4s cubic-bezier(.2,.7,.2,1) forwards;
-}
-@keyframes settle { to { transform: scale(1); } }
+.hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 40%; }
 .hero::after {
   content: ""; position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(14,22,17,.82) 0%, rgba(14,22,17,.45) 42%, rgba(14,22,17,0) 70%),
-    linear-gradient(0deg, rgba(14,22,17,.75) 0%, rgba(14,22,17,0) 45%);
+    linear-gradient(90deg, rgba(14,22,17,.8) 0%, rgba(14,22,17,.42) 42%, rgba(14,22,17,0) 70%),
+    linear-gradient(0deg, rgba(14,22,17,.7) 0%, rgba(14,22,17,0) 45%);
 }
 .hero .wrap { position: relative; z-index: 1; width: 100%; padding-bottom: clamp(48px, 9vh, 96px); }
-.hero__script { font-size: clamp(24px, 2.6vw, 32px); color: var(--brass-soft); margin: 0 0 10px; line-height: 1.1; }
+.hero__tagline { font-style: italic; font-size: clamp(24px, 2.6vw, 32px); color: var(--brass-soft); margin: 0 0 10px; line-height: 1.1; }
 .hero h1 {
-  font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 9vw, 124px);
+  font-weight: 400; font-size: clamp(56px, 9vw, 124px);
   line-height: .92; letter-spacing: -.01em; margin: 0 0 28px;
 }
-.hero p { max-width: 34ch; font-size: clamp(19px, 1.6vw, 22px); color: rgba(245,243,237,.85); margin: 0 0 34px; }
+.hero__lede { max-width: 30ch; font-size: clamp(19px, 1.6vw, 22px); color: rgba(245,243,237,.86); margin: 0 0 34px; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
-.hero__meta {
-  position: absolute; right: var(--gutter); bottom: clamp(48px, 9vh, 96px); z-index: 1;
-  text-align: right; color: rgba(245,243,237,.7); line-height: 2;
+.hero__hours {
+  position: absolute; right: var(--gutter); bottom: clamp(48px, 9vh, 96px);
+  margin: 0; text-align: right; font-size: 17px; line-height: 1.7; color: rgba(245,243,237,.75);
 }
-.hero__meta strong { color: var(--cream); font-weight: 500; }
+.hero__hours dt { display: inline; color: var(--cream); font-weight: 500; }
+.hero__hours dt::after { content: ","; }
+.hero__hours dd { display: inline; margin: 0 0 0 .25em; }
+.hero__hours dd::after { content: ""; display: block; }
 
-/* ---------- Intro ---------- */
+/* Intro */
 .intro { padding: clamp(72px, 10vw, 140px) 0 clamp(56px, 7vw, 96px); }
 .intro .wrap { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
-.intro .eyebrow { color: var(--sage); margin: 0 0 18px; }
-.intro h2 {
-  font-weight: 400; font-size: clamp(34px, 4vw, 54px); line-height: 1.08; margin: 0; color: var(--forest);
-}
+.intro h2 { font-weight: 400; font-size: clamp(34px, 4vw, 52px); line-height: 1.1; margin: 0; color: var(--forest); }
 .intro h2 em { color: var(--sage); }
 .intro__body p { margin: 0 0 1.1em; font-size: 20px; color: #3b463e; }
-.intro__body p:first-child::first-letter {
-  float: left; font-size: 78px; line-height: .8; padding: 8px 12px 0 0; color: var(--sage);
-}
-.signature { font-family: var(--script); font-style: italic; font-size: 26px; color: var(--brass); margin-top: 10px; }
+.intro__body p:last-child { margin-bottom: 0; }
 
-/* ---------- Menu tabs ---------- */
-.menus { padding-bottom: clamp(72px, 9vw, 128px); scroll-margin-top: 84px; }
-.book { scroll-margin-top: 84px; }
+/* Tabs */
+.menus { padding-bottom: clamp(72px, 9vw, 128px); scroll-margin-top: var(--header); }
 .tabs {
-  position: sticky; top: 84px; z-index: 40;
-  background: rgba(245,243,237,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  position: sticky; top: var(--header); z-index: 40;
+  background: var(--cream);
   border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
 }
-.tabs .wrap { display: flex; align-items: stretch; justify-content: center; gap: clamp(20px, 4vw, 56px); }
-.tab-group { display: flex; align-items: center; gap: 4px; }
-.tab-group__label {
-  font-family: var(--script); font-style: italic; font-size: 18px; color: var(--brass); margin-right: 12px; white-space: nowrap;
-}
+.tabs .wrap { display: flex; align-items: stretch; justify-content: center; gap: clamp(16px, 3vw, 40px); }
+.tab-group { display: flex; align-items: center; gap: 2px; }
 .tab {
   position: relative; background: none; border: 0; cursor: pointer;
-  padding: 24px 14px 21px;
-  font-family: var(--sans); font-size: 12.5px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--muted); white-space: nowrap; transition: color .25s;
+  padding: 20px 14px 18px;
+  font-family: var(--serif); font-size: 19px; font-weight: 500;
+  color: var(--muted); white-space: nowrap; transition: color .2s;
 }
 .tab::after {
   content: ""; position: absolute; left: 14px; right: 14px; bottom: -1px; height: 2px; background: var(--forest);
-  transform: scaleX(0); transition: transform .4s cubic-bezier(.2,.7,.2,1);
+  transform: scaleX(0); transition: transform .35s cubic-bezier(.2,.7,.2,1);
 }
 .tab:hover { color: var(--forest); }
-.tab[aria-selected="true"] { color: var(--forest); font-weight: 500; }
+.tab[aria-selected="true"] { color: var(--forest); }
 .tab[aria-selected="true"]::after { transform: scaleX(1); }
 .tabs__divider { width: 1px; background: var(--rule); margin: 18px 0; }
 
-/* ---------- Menu layout ---------- */
+/* Menu layout */
 .menu-layout {
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: clamp(32px, 5vw, 80px); padding-top: clamp(40px, 5vw, 72px);
 }
-.menu-visual { position: sticky; top: 172px; align-self: start; }
-.menu-visual__frame {
-  position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--forest);
-}
+.menu-visual { position: sticky; top: calc(var(--header) + 96px); align-self: start; margin: 0; }
+.menu-visual__frame { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--forest); }
 .menu-visual__frame img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  transition: opacity .7s ease, transform 1.4s cubic-bezier(.2,.7,.2,1);
+  transition: opacity .6s ease;
 }
-.menu-visual__frame img.is-out { opacity: 0; transform: scale(1.04); }
-.menu-visual__caption {
-  position: absolute; left: 0; right: 0; bottom: 0; padding: 72px 28px 26px;
-  background: linear-gradient(0deg, rgba(14,22,17,.8), rgba(14,22,17,0));
-  color: var(--cream); display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
-}
-.menu-visual__caption .script { font-size: 26px; line-height: 1.1; color: var(--brass-soft); }
-.menu-visual__caption .eyebrow { font-size: 11px; color: rgba(245,243,237,.75); text-align: right; }
-.menu-visual__note {
-  margin-top: 18px; font-size: 16px; font-style: italic; color: var(--muted);
-  display: flex; gap: 12px; align-items: baseline;
-}
-.menu-visual__note::before { content: ""; flex: 0 0 28px; height: 1px; background: var(--brass); transform: translateY(-4px); }
+.menu-visual__frame img.is-out { opacity: 0; }
 
-/* ---------- The card ---------- */
+/* Wine and bar: full-width card with a banner photo above */
+.menu-layout.is-wide { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.is-wide .menu-visual { position: relative; top: 0; }
+.is-wide .menu-visual__frame { aspect-ratio: 16 / 5; }
+
+/* The card */
 .card {
   position: relative; background: var(--paper);
-  padding: clamp(40px, 6vw, 84px) clamp(22px, 5.5vw, 76px) clamp(40px, 5vw, 64px);
-  box-shadow: 0 1px 0 rgba(26,40,31,.04), 0 30px 60px -40px rgba(26,40,31,.35);
+  padding: clamp(40px, 6vw, 80px) clamp(22px, 5.5vw, 76px) clamp(40px, 5vw, 64px);
+  box-shadow: 0 30px 60px -44px rgba(26,40,31,.35);
 }
-.card::before {
-  content: ""; position: absolute; inset: 12px; border: 1px solid rgba(76,107,77,.22); pointer-events: none;
-}
-.card__inner { position: relative; transition: opacity .35s ease, transform .5s cubic-bezier(.2,.7,.2,1); }
-.card__inner.is-out { opacity: 0; transform: translateY(10px); }
+.card::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(76,107,77,.2); pointer-events: none; }
+.card__inner { position: relative; transition: opacity .25s ease; }
+.card__inner.is-out { opacity: 0; }
 
-.card__head { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
-.card__mark { width: 74px; margin: 0 auto 22px; color: var(--sage); opacity: .9; }
-.card__title {
-  font-weight: 400; font-style: italic; font-size: clamp(44px, 5.4vw, 68px); line-height: 1; margin: 0 0 14px; color: var(--forest);
-}
-.card__sub { color: var(--sage); margin: 0; }
-.card__intro { max-width: 52ch; margin: 22px auto 0; color: var(--muted); font-size: 18px; font-style: italic; }
+.card__head { text-align: center; margin-bottom: clamp(36px, 5vw, 52px); }
+.card__logo { display: block; width: 92px; margin: 0 auto 26px; color: var(--sage); }
+.card__logo svg { display: block; width: 100%; height: auto; }
+.card__title { font-weight: 400; font-style: italic; font-size: clamp(44px, 5.4vw, 64px); line-height: 1; margin: 0 0 12px; color: var(--forest); }
+.card__sub { margin: 0; font-style: italic; font-size: 19px; color: var(--muted); }
+.card__intro { max-width: 54ch; margin: 22px auto 0; color: var(--muted); font-size: 18px; }
 
 .price-banner {
-  display: flex; justify-content: center; gap: clamp(24px, 5vw, 64px); margin: 30px auto 0; padding: 20px 0;
-  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); max-width: 480px;
+  display: flex; justify-content: center; gap: clamp(28px, 6vw, 72px); margin: 30px auto 0; padding: 20px 0 18px;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); max-width: 520px;
 }
 .price-banner div { text-align: center; }
-.price-banner .eyebrow { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
-.price-banner strong { font-weight: 500; font-size: 36px; color: var(--forest); line-height: 1; }
-.price-banner small { display: block; margin-top: 4px; font-size: 15px; font-style: italic; color: var(--muted); }
+.price-banner span { display: block; font-style: italic; font-size: 17px; color: var(--muted); }
+.price-banner strong { font-weight: 500; font-size: 34px; color: var(--forest); line-height: 1.1; }
 
-.section + .section { margin-top: clamp(40px, 5vw, 60px); }
+.jump {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 26px;
+  margin: 30px auto 0; padding: 0; list-style: none; max-width: 720px;
+}
+.jump a { font-style: italic; font-size: 18px; color: var(--sage); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+.jump a:hover { color: var(--forest); border-color: currentColor; }
+
+.section + .section { margin-top: clamp(44px, 5vw, 64px); }
 .section__title {
-  display: flex; align-items: center; gap: 18px; margin: 0 0 6px;
-  font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase;
+  margin: 0; text-align: center;
+  font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase;
   color: var(--forest);
 }
-.section__title::before, .section__title::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
-.section__title span { display: inline-flex; align-items: center; gap: 14px; }
-.section__title span::before, .section__title span::after {
-  content: ""; width: 5px; height: 5px; background: var(--brass); transform: rotate(45deg);
-}
-.section__note { text-align: center; font-style: italic; color: var(--muted); font-size: 17px; max-width: 54ch; margin: 10px auto 0; }
-.items { list-style: none; margin: 22px 0 0; padding: 0; }
+.section__title::after { content: ""; display: block; width: 36px; height: 1px; background: var(--brass); margin: 14px auto 0; }
+.section__note { text-align: center; font-style: italic; color: var(--muted); font-size: 18px; max-width: 54ch; margin: 14px auto 0; }
+.items { list-style: none; margin: 20px 0 0; padding: 0; }
 
 .subhead {
-  margin: 30px 0 4px; text-align: center;
-  font-family: var(--script); font-style: italic; font-weight: 500; font-size: 21px; color: var(--sage); line-height: 1.3;
+  margin: 30px 0 2px; text-align: center;
+  font-style: italic; font-weight: 500; font-size: 21px; color: var(--sage); line-height: 1.3;
 }
-.subhead small { display: block; font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--muted); }
-.items > .subhead:first-child { margin-top: 8px; }
+.subhead small { display: block; font-weight: 400; font-size: 16px; color: var(--muted); }
+.items > .subhead:first-child { margin-top: 10px; }
 
-.item { padding: 13px 0; }
-.item__row { display: flex; align-items: baseline; gap: 12px; }
-.item__name { font-size: 22px; font-weight: 500; line-height: 1.25; color: var(--forest); }
-.item__leader { flex: 1; min-width: 20px; border-bottom: 1px dotted rgba(26,40,31,.28); transform: translateY(-5px); }
-.item__price {
-  font-family: var(--sans); font-size: 16px; font-weight: 500; letter-spacing: .04em; color: var(--forest);
-  font-variant-numeric: lining-nums tabular-nums; white-space: nowrap;
-}
-.item__origin {
-  font-family: var(--sans); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--sage);
-  margin-top: 4px;
-}
-.item__desc { margin: 4px 0 0; font-style: italic; color: var(--muted); font-size: 18px; line-height: 1.45; max-width: 58ch; }
-.item__desc::first-letter { text-transform: uppercase; }
-.item__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin-top: 8px; }
-.tags { display: inline-flex; gap: 5px; flex-wrap: wrap; }
-.tag {
-  display: inline-grid; place-items: center; min-width: 26px; height: 20px; padding: 2px 6px 0;
-  font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--sage); border: 1px solid rgba(76,107,77,.45); border-radius: 10px; cursor: help; text-decoration: none;
-}
-.variants { display: inline-flex; flex-wrap: wrap; gap: 4px 18px; font-family: var(--sans); font-size: 13.5px; color: var(--muted); }
-.variants b { font-weight: 500; color: var(--forest); margin-left: 6px; }
+.item { padding: 12px 0; break-inside: avoid; }
+.item__row { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+.item__name { margin: 0; font-size: 22px; font-weight: 500; line-height: 1.25; color: var(--forest); }
+.item__price { font-size: 21px; font-weight: 500; color: var(--forest); white-space: nowrap; }
+.item__origin { margin: 2px 0 0; font-size: 16.5px; color: var(--sage); }
+.item__origin i { color: var(--muted); margin-left: .5em; }
+.item__desc { margin: 3px 0 0; font-style: italic; color: var(--muted); font-size: 18px; line-height: 1.45; max-width: 60ch; }
+.diet { font-style: normal; font-size: 15px; letter-spacing: .04em; color: var(--sage); white-space: nowrap; margin-left: .4em; }
+.diet abbr { text-decoration: none; cursor: help; }
+.item__desc:empty { display: none; }
+.item__variants { margin: 5px 0 0; display: flex; flex-wrap: wrap; gap: 2px 22px; font-size: 17px; color: var(--muted); }
+.item__variants b { font-weight: 500; color: var(--forest); margin-left: 6px; }
 
-.key {
-  margin-top: clamp(40px, 5vw, 60px); padding-top: 26px; border-top: 1px solid var(--rule);
-  display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: center; font-size: 15px; color: var(--muted);
+/* Two columns for the long wine and bar lists */
+@media (min-width: 981px) {
+  .is-wide .items { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; }
+  .is-wide .subhead { grid-column: 1 / -1; }
 }
-.key span { display: inline-flex; align-items: center; gap: 7px; }
-.allergy { text-align: center; font-size: 15px; font-style: italic; color: var(--muted); margin: 14px auto 0; max-width: 60ch; }
 
-/* ---------- Book ---------- */
-.book { background: var(--forest); color: var(--cream); display: grid; grid-template-columns: 1fr 1fr; }
+.card__foot { margin-top: clamp(44px, 5vw, 60px); padding-top: 24px; border-top: 1px solid var(--rule); text-align: center; font-size: 16px; color: var(--muted); }
+.key { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 22px; margin: 0 0 10px; padding: 0; list-style: none; }
+.key b { font-weight: 500; color: var(--sage); margin-right: 5px; }
+.card__foot p { margin: 0; font-style: italic; }
+
+/* Book */
+.book { background: var(--forest); color: var(--cream); display: grid; grid-template-columns: 1fr 1fr; scroll-margin-top: var(--header); }
 .book__img { position: relative; min-height: 560px; }
 .book__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.book__body {
-  padding: clamp(56px, 8vw, 120px) clamp(24px, 7vw, 110px);
-  display: flex; flex-direction: column; justify-content: center;
-  background:
-    radial-gradient(120% 80% at 100% 0%, rgba(76,107,77,.35), transparent 60%),
-    var(--forest);
-}
-.book .script { font-size: 26px; color: var(--brass-soft); margin: 0 0 10px; line-height: 1.1; }
+.book__body { padding: clamp(56px, 8vw, 120px) clamp(24px, 7vw, 110px); display: flex; flex-direction: column; justify-content: center; }
+.book__tagline { font-style: italic; font-size: 26px; color: var(--brass-soft); margin: 0 0 10px; line-height: 1.1; }
 .book h2 { font-weight: 400; font-size: clamp(42px, 5vw, 68px); line-height: 1; margin: 0 0 26px; }
-.book p { color: rgba(245,243,237,.78); max-width: 46ch; margin: 0 0 1em; }
+.book__body > p { color: rgba(245,243,237,.8); max-width: 46ch; margin: 0 0 1em; }
 .book__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 18px; }
 .book__facts {
-  display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 28px; margin-top: 44px; padding-top: 28px;
+  display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 32px; margin: 44px 0 0; padding-top: 28px;
   border-top: 1px solid rgba(245,243,237,.14);
 }
-.book__facts .eyebrow { font-size: 10.5px; color: var(--brass-soft); display: block; margin-bottom: 6px; }
-.book__facts span:not(.eyebrow), .book__facts a { font-size: 18px; display: block; text-decoration: none; }
+.book__facts dt { font-style: italic; color: var(--brass-soft); margin-bottom: 4px; }
+.book__facts dd { margin: 0; font-size: 18px; }
+.book__facts a { text-decoration: none; }
 .book__facts a:hover { color: var(--brass-soft); }
 
-/* ---------- Strip ---------- */
+/* Photo strip */
 .strip { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.2fr; gap: 6px; background: var(--cream); padding: 6px; }
 .strip figure { margin: 0; overflow: hidden; height: clamp(240px, 32vw, 480px); }
-.strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
-.strip figure:hover img { transform: scale(1.04); }
+.strip img { width: 100%; height: 100%; object-fit: cover; }
 
-/* ---------- Footer ---------- */
-.site-footer { background: #142019; color: rgba(245,243,237,.7); padding: clamp(64px, 8vw, 104px) 0 36px; font-size: 17px; }
+/* Footer */
+.site-footer { background: var(--forest-deep); color: rgba(245,243,237,.7); padding: clamp(64px, 8vw, 104px) 0 36px; font-size: 17px; }
 .site-footer .wrap { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
 .site-footer .brand { width: 150px; margin-bottom: 22px; }
-.site-footer p { margin: 0 0 1em; max-width: 34ch; }
-.site-footer h3 { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--brass-soft); margin: 8px 0 18px; }
+.site-footer p { margin: 0; max-width: 34ch; }
+.site-footer h3 { font-weight: 500; font-size: 20px; color: var(--cream); margin: 4px 0 14px; }
 .site-footer ul { list-style: none; margin: 0; padding: 0; }
-.site-footer li { margin-bottom: 8px; }
+.site-footer li { margin-bottom: 6px; }
 .site-footer a { text-decoration: none; transition: color .2s; }
 .site-footer a:hover { color: var(--cream); }
 .site-footer address { font-style: normal; }
 .footer-base {
-  grid-column: 1 / -1; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-  margin-top: 40px; padding-top: 26px; border-top: 1px solid rgba(245,243,237,.1);
-  font-family: var(--sans); font-size: 12px; letter-spacing: .06em; color: rgba(245,243,237,.45);
+  grid-column: 1 / -1; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(245,243,237,.1);
+  font-family: var(--sans); font-size: 12px; letter-spacing: .04em; color: rgba(245,243,237,.45);
 }
 
-/* ---------- Reveal ---------- */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform 1s cubic-bezier(.2,.7,.2,1); }
-.reveal.is-in { opacity: 1; transform: none; }
-
-/* ---------- Responsive ---------- */
+/* Responsive */
 @media (max-width: 1180px) {
-  .tab-group__label { display: none; }
-  .tab { padding-left: 10px; padding-right: 10px; letter-spacing: .16em; }
+  .tab { padding-left: 10px; padding-right: 10px; font-size: 18px; }
   .tab::after { left: 10px; right: 10px; }
-  .tabs .wrap { gap: 12px; }
 }
 @media (max-width: 980px) {
   .primary-nav, .header-cta .btn span { display: none; }
   .menu-toggle { display: block; }
   .drawer.is-open { display: block; }
-  .hero__meta { display: none; }
+  .hero__hours { display: none; }
   .intro .wrap { grid-template-columns: 1fr; }
-  .tabs .wrap { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; padding-right: 0; }
+  .tabs .wrap { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
   .tabs .wrap::-webkit-scrollbar { display: none; }
-  .tabs { mask-image: linear-gradient(90deg, #000 85%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); }
-  .menu-layout { grid-template-columns: 1fr; }
+  .tabs { -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  .menu-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .menu-visual { position: relative; top: 0; }
-  .menu-visual__frame { aspect-ratio: 16 / 9; }
-  .menu-visual__note { display: none; }
+  .menu-visual__frame, .is-wide .menu-visual__frame { aspect-ratio: 16 / 9; }
   .book { grid-template-columns: 1fr; }
   .book__img { min-height: 320px; }
   .strip { grid-template-columns: 1fr 1fr; }
   .site-footer .wrap { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
+  :root { --header: 68px; }
   body { font-size: 18px; }
   .topbar .hide-sm { display: none; }
-  .site-header .wrap { height: 68px; }
-  .tabs { top: 68px; }
-  .menus, .book { scroll-margin-top: 68px; }
   .brand { width: 100px; }
   .header-cta .btn { padding: 11px 14px 9px; }
   .hero { min-height: 78vh; }
   .hero::after { background: linear-gradient(0deg, rgba(14,22,17,.9) 0%, rgba(14,22,17,.35) 60%, rgba(14,22,17,.15) 100%); }
   .card::before { inset: 8px; }
   .item__name { font-size: 20px; }
+  .item__price { font-size: 19px; }
   .item__desc { font-size: 17px; }
+  .jump { gap: 4px 18px; }
   .book__facts { grid-template-columns: 1fr 1fr; }
   .site-footer .wrap { grid-template-columns: 1fr; }
-  .menu-visual__frame { aspect-ratio: 4 / 3; }
+  .menu-visual__frame, .is-wide .menu-visual__frame { aspect-ratio: 4 / 3; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
+  *, *::before, *::after { transition: none !important; }
   html { scroll-behavior: auto; }
 }
 </style>
@@ -433,23 +383,23 @@ button { font: inherit; color: inherit; }
 <header class="site-header" id="header">
   <div class="wrap">
     <nav class="primary-nav" aria-label="Primary">
-      <a href="#menus" aria-current="page">Menus</a>
-      <a href="#menus" data-goto="sunday">Sundays</a>
+      <a href="#menus" data-goto="alacarte">Menus</a>
+      <a href="#menus" data-goto="sunday">Sunday lunch</a>
       <a href="#menus" data-goto="glass">Wine</a>
-      <a href="#book">Book</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">Find us</a>
     </nav>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
-    <a class="brand" href="#top" aria-label="Gillson’s Brasserie, home" data-logo></a>
+    <a class="brand" href="#top" aria-label="Gillson’s Brasserie, back to top" data-logo></a>
     <div class="header-cta">
-      <a class="btn btn--ghost" href="#book">
+      <a class="btn btn--ghost" href="#book" aria-label="Book a table">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="12"/><path d="M1.5 6.5h13M5 1v3M11 1v3"/></svg>
         <span>Book a table</span>
       </a>
     </div>
   </div>
   <nav class="drawer" id="drawer" aria-label="Mobile">
-    <a href="#menus">Menus</a>
-    <a href="#menus" data-goto="sunday">Sundays</a>
+    <a href="#menus" data-goto="alacarte">Menus</a>
+    <a href="#menus" data-goto="sunday">Sunday lunch</a>
     <a href="#menus" data-goto="glass">Wine</a>
     <a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">Find us</a>
     <a class="btn btn--brass" href="#book">Book a table</a>
@@ -458,88 +408,80 @@ button { font: inherit; color: inherit; }
 
 <main id="top">
   <section class="hero">
-    <img class="hero__img" src="img/hero.jpg" alt="Crudités served in a silver coupe beside warm sourdough">
+    <img class="hero__img" src="img/hero-2200.webp" srcset="img/hero-1200.webp 1200w, img/hero-2200.webp 2200w" sizes="100vw" fetchpriority="high" alt="Crudités served in a silver coupe beside warm sourdough">
     <div class="wrap">
-      <p class="hero__script script">Food worth returning for</p>
+      <p class="hero__tagline">Food worth returning for</p>
       <h1>Our Menus</h1>
-      <p>Classic brasserie cooking on Ecclesall Road — clear choices, done properly, every time.</p>
+      <p class="hero__lede">A restaurant inspired by classic brasseries, and dishes which stand the test of time.</p>
       <div class="hero__actions">
         <a class="btn btn--brass" href="#menus">View the menus</a>
         <a class="btn btn--ghost" href="#book">Book a table</a>
       </div>
-      <div class="hero__meta eyebrow">
-        <strong>Lunch</strong> Mon–Sat, 12–3pm<br>
-        <strong>À la carte</strong> Daily from 12pm<br>
-        <strong>Sunday</strong> Roasts &amp; à la carte
-      </div>
+      <dl class="hero__hours">
+        <dt>Lunch</dt><dd>Monday to Saturday, 12 until 3pm</dd>
+        <dt>À la carte</dt><dd>daily from 12pm</dd>
+      </dl>
     </div>
   </section>
 
   <section class="intro">
     <div class="wrap">
-      <div class="reveal">
-        <p class="eyebrow">What we serve</p>
-        <h2>Dishes that stand the test of time, <em>served with care.</em></h2>
-      </div>
-      <div class="intro__body reveal">
-        <p>Our menus bring together everything we serve at Gillson’s, from weekday lunch and evening dining to Sunday lunch, children’s dishes and drinks. Each one reflects the same approach: classic brasserie cooking, clear choices and consistency across the table.</p>
+      <h2>Classic brasserie cooking, clear choices and <em>consistency across the table.</em></h2>
+      <div class="intro__body">
+        <p>Our menus bring together everything we serve at Gillson’s, from weekday lunch and evening dining to Sunday lunch, children’s dishes and drinks.</p>
         <p>Celebrating a graduation, birthday or anniversary? Take your time to explore what’s on offer and plan your visit. Whether you’re joining us for a quick lunch, a long Sunday or something in between, you’ll find the full details below.</p>
-        <div class="signature">Gillson’s</div>
       </div>
     </div>
   </section>
 
-  <section class="menus" id="menus" aria-label="Menus">
+  <section class="menus" id="menus" aria-labelledby="menus-heading">
+    <h2 class="visually-hidden" id="menus-heading">Menus</h2>
     <div class="tabs">
       <div class="wrap" role="tablist" aria-label="Choose a menu" id="tablist"></div>
     </div>
-    <div class="wrap menu-layout">
-      <aside class="menu-visual" aria-hidden="true">
-        <div class="menu-visual__frame" id="visual">
-          <div class="menu-visual__caption">
-            <span class="script" id="visualTitle"></span>
-            <span class="eyebrow" id="visualSub"></span>
-          </div>
-        </div>
-        <p class="menu-visual__note">Please let our team know of any allergies or dietary requirements when booking — we’ll always do what we can.</p>
-      </aside>
+    <div class="wrap menu-layout" id="layout">
+      <figure class="menu-visual" aria-hidden="true">
+        <div class="menu-visual__frame" id="visual"></div>
+      </figure>
       <article class="card" id="panel" role="tabpanel" tabindex="-1">
         <div class="card__inner" id="panelInner"></div>
       </article>
     </div>
   </section>
 
-  <section class="book" id="book">
-    <div class="book__img"><img src="img/interior.jpg" alt="The dining room at Gillson’s, with green banquettes and brass lamps" loading="lazy"></div>
-    <div class="book__body reveal">
-      <p class="script">We look forward to welcoming you</p>
-      <h2>Book a table</h2>
-      <p>Whether you’re joining us for lunch, dinner or Sunday lunch, call or email us and we’ll find you a table.</p>
-      <p>Visiting for a special occasion, a business lunch, or have dietary requirements? Let us know when booking and our team will make your visit feel considered from the moment you arrive.</p>
+  <section class="book" id="book" aria-labelledby="book-heading">
+    <div class="book__img">
+      <img src="img/interior-1400.webp" srcset="img/interior-800.webp 800w, img/interior-1400.webp 1400w" sizes="(max-width: 980px) 100vw, 50vw" alt="The dining room, with green banquettes and brass table lamps" loading="lazy">
+    </div>
+    <div class="book__body">
+      <p class="book__tagline">We look forward to welcoming you</p>
+      <h2 id="book-heading">Book a table</h2>
+      <p>Whether you’re joining us for lunch, dinner or Sunday lunch, give us a call or send an email and we’ll find you a table.</p>
+      <p>Visiting for a special occasion or a business lunch, or have dietary requirements? Let us know when you book and our team will make your visit feel considered from the moment you arrive.</p>
       <div class="book__actions">
-        <a class="btn btn--brass" href="mailto:info@gillsonsbrasserie.co.uk?subject=Table%20reservation">Reserve by email</a>
-        <a class="btn btn--ghost" href="tel:+441143498004">0114 349 8004</a>
+        <a class="btn btn--brass" href="tel:+441143498004">Call 0114 349 8004</a>
+        <a class="btn btn--ghost" href="mailto:info@gillsonsbrasserie.co.uk?subject=Table%20reservation">Email us</a>
       </div>
-      <div class="book__facts">
-        <div><span class="eyebrow">Find us</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">607–609 Ecclesall Rd<br>Sheffield S11 8PT</a></div>
-        <div><span class="eyebrow">Lunch</span><span>Mon–Sat<br>12pm – 3pm</span></div>
-        <div><span class="eyebrow">À la carte</span><span>Served daily<br>from 12pm</span></div>
-      </div>
+      <dl class="book__facts">
+        <div><dt>Find us</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">607–609 Ecclesall Road<br>Sheffield S11 8PT</a></dd></div>
+        <div><dt>Lunch</dt><dd>Monday to Saturday<br>12 until 3pm</dd></div>
+        <div><dt>À la carte</dt><dd>Served daily<br>from 12pm</dd></div>
+      </dl>
     </div>
   </section>
 
-  <div class="strip" aria-label="Gallery">
-    <figure><img src="img/service.jpg" alt="A server carrying steak and fries" loading="lazy"></figure>
-    <figure><img src="img/trifle.jpg" alt="PX sherry trifle" loading="lazy"></figure>
-    <figure><img src="img/table.jpg" alt="Guests at a table set with coupes and crudités" loading="lazy"></figure>
-    <figure><img src="img/exterior.jpg" alt="The green shopfront of Gillson’s Brasserie on Ecclesall Road" loading="lazy"></figure>
+  <div class="strip">
+    <figure><img src="img/service-800.webp" srcset="img/service-800.webp 800w, img/service-1400.webp 1400w" sizes="(max-width: 980px) 50vw, 28vw" alt="A server carrying fillet steak and fries" loading="lazy"></figure>
+    <figure><img src="img/trifle-800.webp" srcset="img/trifle-800.webp 800w, img/trifle-1400.webp 1400w" sizes="(max-width: 980px) 50vw, 23vw" alt="PX sherry trifle" loading="lazy"></figure>
+    <figure><img src="img/table-800.webp" srcset="img/table-800.webp 800w, img/table-1400.webp 1400w" sizes="(max-width: 980px) 50vw, 23vw" alt="Guests at a table set with crudités and coupes" loading="lazy"></figure>
+    <figure><img src="img/exterior-800.webp" srcset="img/exterior-800.webp 800w, img/exterior-1400.webp 1400w" sizes="(max-width: 980px) 50vw, 28vw" alt="The green shopfront on Ecclesall Road" loading="lazy"></figure>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
     <div>
-      <a class="brand" href="#top" aria-label="Gillson’s Brasserie" data-logo></a>
+      <a class="brand" href="#top" aria-label="Gillson’s Brasserie, back to top" data-logo></a>
       <p>From the team behind Gills &amp; Co and The Gillmont, Gillson’s is a restaurant inspired by classic brasseries, and dishes which stand the test of time.</p>
     </div>
     <div>
@@ -554,19 +496,15 @@ button { font: inherit; color: inherit; }
       </ul>
     </div>
     <div>
-      <h3>Explore</h3>
+      <h3>Menus</h3>
       <ul>
-        <li><a href="#menus" data-goto="alacarte">Menus</a></li>
+        <li><a href="#menus" data-goto="alacarte">À la carte</a></li>
+        <li><a href="#menus" data-goto="lunch">Prix fixe lunch</a></li>
         <li><a href="#menus" data-goto="sunday">Sunday lunch</a></li>
         <li><a href="#menus" data-goto="bottle">Wine list</a></li>
-        <li><a href="#book">Book a table</a></li>
-        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">Find us</a></li>
       </ul>
     </div>
-    <div class="footer-base">
-      <span>© Gillson’s Brasserie, Sheffield</span>
-      <span>Classic brasserie cooking · Ecclesall Road</span>
-    </div>
+    <p class="footer-base">© 2026 Gillson’s Brasserie, Sheffield</p>
   </div>
 </footer>
 
@@ -574,54 +512,50 @@ button { font: inherit; color: inherit; }
 <script>
 (() => {
   const LABELS = {
-    v: "Vegetarian", vg: "Vegan", gf: "Gluten free",
-    gfo: "Gluten-free option", vgo: "Vegan option", n: "Contains nuts"
+    v: "vegetarian", vg: "vegan", gf: "gluten free",
+    gfo: "gluten-free option", vgo: "vegan option", n: "contains nuts"
   };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const slug = id => id === "alacarte" ? "a-la-carte" : id;
   const menus = window.MENUS;
+  const header = document.getElementById("header");
+  const tabsBar = document.querySelector(".tabs");
 
   // Logo, inlined so it inherits colour.
+  let logoSvg = "";
   fetch("img/logo.svg").then(r => r.text()).then(svg => {
-    document.querySelectorAll("[data-logo]").forEach(el => el.innerHTML = svg);
+    logoSvg = svg;
+    document.querySelectorAll("[data-logo], .card__logo").forEach(el => el.innerHTML = svg);
   });
 
-  // Tabs
+  // Tabs, kitchen menus then the cellar.
   const tablist = document.getElementById("tablist");
-  const groups = { kitchen: "From the kitchen", cellar: "From the cellar" };
-  Object.entries(groups).forEach(([key, label], i) => {
+  ["kitchen", "cellar"].forEach((group, i) => {
     if (i) tablist.insertAdjacentHTML("beforeend", '<span class="tabs__divider" aria-hidden="true"></span>');
     const g = document.createElement("div");
     g.className = "tab-group";
-    g.innerHTML = `<span class="tab-group__label" aria-hidden="true">${label}</span>` +
-      menus.filter(m => m.group === key).map(m =>
-        `<button class="tab" role="tab" id="tab-${m.id}" aria-controls="panel" aria-selected="false" tabindex="-1" data-id="${m.id}">${esc(m.title)}</button>`
-      ).join("");
+    g.innerHTML = menus.filter(m => m.group === group).map(m =>
+      `<button class="tab" role="tab" id="tab-${m.id}" aria-controls="panel" aria-selected="false" tabindex="-1" data-id="${m.id}">${esc(m.title)}</button>`
+    ).join("");
     tablist.appendChild(g);
   });
   const tabs = [...tablist.querySelectorAll(".tab")];
 
-  // Menu rendering
-  const mark = `<svg class="card__mark" viewBox="0 0 74 14" fill="none" stroke="currentColor" stroke-width=".8" aria-hidden="true"><path d="M0 7h27M47 7h27"/><path d="M37 1l6 6-6 6-6-6z" fill="currentColor" fill-opacity=".15"/><circle cx="29.5" cy="7" r="1" fill="currentColor"/><circle cx="44.5" cy="7" r="1" fill="currentColor"/></svg>`;
-
-  const variantLabel = v => v.replace(/^Glass \((.+)\)$/, "$1");
-
   function renderItem(it) {
     if (it.h) {
       const [h, ...rest] = it.h.split(" - ");
-      return `<li class="subhead">${esc(h)}${rest.length ? `<small>${esc(rest.join(" – "))}</small>` : ""}</li>`;
+      return `<li class="subhead">${esc(h)}${rest.length ? `<small>${esc(rest.join(", "))}</small>` : ""}</li>`;
     }
-    const tags = (it.l || []).map(l => `<abbr class="tag" title="${LABELS[l]}">${l}</abbr>`).join("");
-    const variants = it.v && it.v.length
-      ? `<span class="variants">${it.v.map(([n, p]) => `<span>${esc(variantLabel(n))}<b>${esc(p)}</b></span>`).join("")}</span>` : "";
+    const diet = it.l && it.l.length
+      ? `<span class="diet">${it.l.map(l => `<abbr title="${LABELS[l]}">${l}</abbr>`).join(", ")}</span>` : "";
     return `<li class="item">
       <div class="item__row">
-        <span class="item__name">${esc(it.n)}</span>
-        ${it.p ? `<span class="item__leader"></span><span class="item__price">${esc(it.p)}</span>` : ""}
+        <h4 class="item__name">${esc(it.n)}</h4>
+        ${it.p ? `<span class="item__price">${esc(it.p)}</span>` : ""}
       </div>
-      ${it.o ? `<div class="item__origin">${esc(it.o)}</div>` : ""}
-      ${it.d ? `<p class="item__desc">${esc(it.d)}</p>` : ""}
-      ${tags || variants ? `<div class="item__meta">${variants}${tags ? `<span class="tags">${tags}</span>` : ""}</div>` : ""}
+      ${it.o ? `<p class="item__origin">${esc(it.o)}${it.g ? `<i>${esc(it.g)}</i>` : ""}</p>` : ""}
+      ${it.d || diet ? `<p class="item__desc">${it.d ? esc(it.d) : ""}${diet}</p>` : ""}
+      ${it.v && it.v.length ? `<p class="item__variants">${it.v.map(([n, p]) => `<span>${esc(n)}<b>${esc(p)}</b></span>`).join("")}</p>` : ""}
     </li>`;
   }
 
@@ -632,58 +566,58 @@ button { font: inherit; color: inherit; }
       const set = sections[0];
       const courses = set.items.find(i => i.v);
       const supp = set.items.find(i => /steak/i.test(i.n));
-      banner = `<div class="price-banner">${courses.v.map(([n, p]) =>
-        `<div><span class="eyebrow">${esc(n)}</span><strong>${esc(p)}</strong></div>`).join("")}
-        ${supp ? `<div><span class="eyebrow">Steak supplement</span><strong>${esc(supp.p)}</strong></div>` : ""}</div>`;
+      banner = `<div class="price-banner">${courses.v.map(([n, p]) => `<div><span>${esc(n)}</span><strong>${esc(p)}</strong></div>`).join("")}
+        ${supp ? `<div><span>Steak supplement</span><strong>${esc(supp.p)}</strong></div>` : ""}</div>`;
       sections = sections.slice(1);
     }
+    const jump = sections.length >= 5
+      ? `<ul class="jump" aria-label="Sections">${sections.map((s, i) => `<li><a href="#s-${m.id}-${i}">${esc(s.name)}</a></li>`).join("")}</ul>` : "";
+
     const used = new Set();
     sections.forEach(s => s.items.forEach(i => (i.l || []).forEach(l => used.add(l))));
     const key = used.size
-      ? `<div class="key">${Object.keys(LABELS).filter(k => used.has(k)).map(k =>
-          `<span><abbr class="tag" title="${LABELS[k]}">${k}</abbr>${LABELS[k]}</span>`).join("")}</div>` : "";
-    const allergy = m.group === "kitchen"
-      ? `<p class="allergy">Please let our team know of any allergies or dietary requirements before ordering.</p>`
-      : `<p class="allergy">Wines are subject to availability; vintages may change.</p>`;
+      ? `<ul class="key">${Object.keys(LABELS).filter(k => used.has(k)).map(k => `<li><b>${k}</b>${LABELS[k]}</li>`).join("")}</ul>` : "";
+    const note = m.group === "kitchen"
+      ? "Please tell us about any allergies or dietary requirements before you order."
+      : "Vintages may change, subject to availability.";
 
     return `
       <header class="card__head">
-        ${mark}
-        <h2 class="card__title">${esc(m.title)}</h2>
-        <p class="card__sub eyebrow">${esc(m.sub)}</p>
+        <span class="card__logo" aria-hidden="true">${logoSvg}</span>
+        <h3 class="card__title">${esc(m.title)}</h3>
+        <p class="card__sub">${esc(m.sub)}</p>
         ${m.intro ? `<p class="card__intro">${esc(m.intro)}</p>` : ""}
         ${banner}
+        ${jump}
       </header>
-      ${sections.map(s => `
-        <section class="section">
-          <h3 class="section__title"><span>${esc(s.name)}</span></h3>
+      ${sections.map((s, i) => `
+        <section class="section" id="s-${m.id}-${i}">
+          <h4 class="section__title">${esc(s.name)}</h4>
           ${s.note ? `<p class="section__note">${esc(s.note)}</p>` : ""}
           <ul class="items">${s.items.map(renderItem).join("")}</ul>
         </section>`).join("")}
-      ${key}
-      ${allergy}`;
+      <footer class="card__foot">${key}<p>${note}</p></footer>`;
   }
 
-  // Visual panel
+  // Photo beside (or above) each menu.
   const visual = document.getElementById("visual");
-  const visualTitle = document.getElementById("visualTitle");
-  const visualSub = document.getElementById("visualSub");
+  const layout = document.getElementById("layout");
   let currentImg = null;
   function setVisual(m) {
     const img = new Image();
-    img.src = m.img;
     img.alt = "";
+    img.sizes = m.group === "cellar" ? "100vw" : "(max-width: 980px) 100vw, 40vw";
+    img.srcset = `img/${m.id}-800.webp 800w, img/${m.id}-1400.webp 1400w`;
+    img.src = `img/${m.id}-1400.webp`;
     img.className = "is-out";
-    visual.insertBefore(img, visual.querySelector(".menu-visual__caption"));
+    visual.appendChild(img);
     const prev = currentImg;
     currentImg = img;
     const show = () => requestAnimationFrame(() => {
       img.classList.remove("is-out");
-      if (prev) { prev.classList.add("is-out"); setTimeout(() => prev.remove(), 800); }
+      if (prev) { prev.classList.add("is-out"); setTimeout(() => prev.remove(), 700); }
     });
     img.decode ? img.decode().then(show, show) : (img.onload = show);
-    visualTitle.textContent = m.title;
-    visualSub.textContent = m.group === "kitchen" ? "From the kitchen" : "From the cellar";
   }
 
   const panel = document.getElementById("panel");
@@ -706,18 +640,21 @@ button { font: inherit; color: inherit; }
         tablist.scrollTo({ left: tablist.scrollLeft + tr.left - lr.left - (lr.width - tr.width) / 2, behavior: first ? "auto" : "smooth" });
       }
     });
-    setVisual(m);
-    const swap = () => { inner.innerHTML = renderMenu(m); inner.classList.remove("is-out"); };
+    const swap = () => {
+      layout.classList.toggle("is-wide", m.group === "cellar");
+      setVisual(m);
+      inner.innerHTML = renderMenu(m);
+      inner.classList.remove("is-out");
+    };
     if (first) swap();
-    else { inner.classList.add("is-out"); setTimeout(swap, 220); }
+    else { inner.classList.add("is-out"); setTimeout(swap, 180); }
     if (push) history.replaceState(null, "", "#" + slug(m.id));
     if (scroll) scrollToMenus();
   }
 
   function scrollToMenus() {
     // Measure the section, not the sticky tab bar: once stuck, the bar reports its stuck position.
-    const header = document.getElementById("header").offsetHeight;
-    const y = document.getElementById("menus").getBoundingClientRect().top + scrollY - header;
+    const y = document.getElementById("menus").getBoundingClientRect().top + scrollY - header.offsetHeight;
     if (Math.abs(scrollY - y) > 4) scrollTo({ top: y, behavior: "smooth" });
   }
 
@@ -736,11 +673,20 @@ button { font: inherit; color: inherit; }
     if (n !== null) { e.preventDefault(); tabs[n].focus(); select(tabs[n].dataset.id); }
   });
 
+  // Section links inside a menu, offset for the sticky header and tabs.
+  inner.addEventListener("click", e => {
+    const a = e.target.closest(".jump a");
+    if (!a) return;
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute("href"));
+    const offset = header.offsetHeight + tabsBar.offsetHeight + 16;
+    scrollTo({ top: target.getBoundingClientRect().top + scrollY - offset, behavior: "smooth" });
+  });
+
   document.querySelectorAll("[data-goto]").forEach(a => a.addEventListener("click", e => {
     e.preventDefault();
     closeDrawer();
     select(a.dataset.goto, { scroll: true });
-    scrollToMenus();
   }));
 
   const fromHash = () => {
@@ -751,7 +697,6 @@ button { font: inherit; color: inherit; }
   addEventListener("hashchange", () => { const id = fromHash(); if (id) select(id, { push: false }); });
 
   // Header shadow
-  const header = document.getElementById("header");
   const onScroll = () => header.classList.toggle("is-stuck", scrollY > 40);
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -766,12 +711,6 @@ button { font: inherit; color: inherit; }
     toggle.setAttribute("aria-expanded", open);
   });
   drawer.querySelectorAll("a:not([data-goto])").forEach(a => a.addEventListener("click", closeDrawer));
-
-  // Reveal on scroll
-  const io = "IntersectionObserver" in window && new IntersectionObserver(entries => {
-    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
-  }, { rootMargin: "0px 0px -8% 0px" });
-  document.querySelectorAll(".reveal").forEach(el => io ? io.observe(el) : el.classList.add("is-in"));
 })();
 </script>
 </body>
