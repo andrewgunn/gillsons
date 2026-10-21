@@ -695,7 +695,9 @@ button { font: inherit; color: inherit; }
       t.tabIndex = on ? 0 : -1;
       if (on) {
         panel.setAttribute("aria-labelledby", t.id);
-        t.scrollIntoView({ block: "nearest", inline: "center", behavior: first ? "auto" : "smooth" });
+        // Centre the tab horizontally without scrolling the page.
+        const tr = t.getBoundingClientRect(), lr = tablist.getBoundingClientRect();
+        tablist.scrollTo({ left: tablist.scrollLeft + tr.left - lr.left - (lr.width - tr.width) / 2, behavior: first ? "auto" : "smooth" });
       }
     });
     setVisual(m);
