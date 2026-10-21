@@ -88,7 +88,10 @@ button { font: inherit; color: inherit; }
 .topbar .wrap { display: flex; justify-content: space-between; align-items: center; height: 40px; gap: 16px; }
 .topbar a { text-decoration: none; transition: color .2s; }
 .topbar a:hover { color: var(--cream); }
-.topbar .sep { opacity: .3; margin: 0 14px; }
+.topbar .sep {
+  display: inline-block; width: 1px; height: 12px; margin: 0 16px;
+  background: currentColor; opacity: .35; vertical-align: -1px;
+}
 .topbar .hide-sm { display: inline; }
 
 .site-header {
@@ -419,10 +422,10 @@ button { font: inherit; color: inherit; }
 <div class="topbar">
   <div class="wrap">
     <div>
-      <a href="tel:+441143498004">0114 349 8004</a><span class="hide-sm"><span class="sep">|</span>607–609 Ecclesall Road, Sheffield</span>
+      <a href="tel:+441143498004">0114 349 8004</a><span class="hide-sm"><span class="sep" aria-hidden="true"></span>607–609 Ecclesall Road, Sheffield</span>
     </div>
     <div>
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">Find us</a><span class="sep">|</span><a href="mailto:info@gillsonsbrasserie.co.uk">Contact</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">Find us</a><span class="sep" aria-hidden="true"></span><a href="mailto:info@gillsonsbrasserie.co.uk">Contact</a>
     </div>
   </div>
 </div>
