@@ -180,7 +180,7 @@ button { font: inherit; color: inherit; }
 .signature { font-family: var(--script); font-size: 34px; color: var(--brass); margin-top: 10px; }
 
 /* ---------- Menu tabs ---------- */
-.menus { padding-bottom: clamp(72px, 9vw, 128px); }
+.menus { padding-bottom: clamp(72px, 9vw, 128px); scroll-margin-top: 84px; }
 .tabs {
   position: sticky; top: 84px; z-index: 40;
   background: rgba(245,243,237,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -393,6 +393,7 @@ button { font: inherit; color: inherit; }
   .topbar .hide-sm { display: none; }
   .site-header .wrap { height: 68px; }
   .tabs { top: 68px; }
+  .menus { scroll-margin-top: 68px; }
   .brand { width: 100px; }
   .header-cta .btn { padding: 11px 14px 9px; }
   .hero { min-height: 78vh; }
@@ -709,9 +710,9 @@ button { font: inherit; color: inherit; }
   }
 
   function scrollToMenus() {
-    const tabsEl = document.querySelector(".tabs");
+    // Measure the section, not the sticky tab bar: once stuck, the bar reports its stuck position.
     const header = document.getElementById("header").offsetHeight;
-    const y = tabsEl.getBoundingClientRect().top + scrollY - header;
+    const y = document.getElementById("menus").getBoundingClientRect().top + scrollY - header;
     if (Math.abs(scrollY - y) > 4) scrollTo({ top: y, behavior: "smooth" });
   }
 
