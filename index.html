@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Menus · Gillson’s Brasserie, Sheffield</title>
+<meta name="description" content="Classic brasserie cooking on Ecclesall Road, Sheffield. À la carte, prix fixe lunch, Sunday roasts, wine and cocktails at Gillson’s Brasserie.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1a281f">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=League+Spartan:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero.jpg">
+<style>
+:root {
+  --forest: #1a281f;
+  --forest-2: #223428;
+  --sage: #4c6b4d;
+  --sage-soft: #8fa58d;
+  --cream: #f5f3ed;
+  --paper: #fbfaf6;
+  --linen: #ece8dc;
+  --brass: #b48a4f;
+  --brass-soft: #d8bf91;
+  --ink: #1f2a22;
+  --muted: #5d685f;
+  --rule: rgba(26, 40, 31, .16);
+
+  --serif: "Cormorant Garamond", "Minion Pro", Georgia, serif;
+  --sans: "League Spartan", "Helvetica Neue", Arial, sans-serif;
+  --script: "Pinyon Script", cursive;
+
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1320px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+.script { font-family: var(--script); font-weight: 400; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .7em;
+  padding: 15px 26px 13px;
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  letter-spacing: .24em; text-transform: uppercase; text-decoration: none;
+  border: 1px solid currentColor;
+  transition: background .35s, color .35s, border-color .35s;
+  white-space: nowrap;
+}
+.btn--brass { background: var(--brass); border-color: var(--brass); color: var(--forest); }
+.btn--brass:hover { background: var(--brass-soft); border-color: var(--brass-soft); }
+.btn--ghost { color: var(--cream); border-color: rgba(245,243,237,.5); }
+.btn--ghost:hover { background: var(--cream); color: var(--forest); border-color: var(--cream); }
+.btn svg { width: 14px; height: 14px; }
+
+/* ---------- Top bar & header ---------- */
+.topbar {
+  background: var(--forest);
+  color: rgba(245,243,237,.72);
+  font-family: var(--sans); font-size: 13px; letter-spacing: .04em;
+  border-bottom: 1px solid rgba(245,243,237,.1);
+}
+.topbar .wrap { display: flex; justify-content: space-between; align-items: center; height: 40px; gap: 16px; }
+.topbar a { text-decoration: none; transition: color .2s; }
+.topbar a:hover { color: var(--cream); }
+.topbar .sep { opacity: .3; margin: 0 14px; }
+.topbar .hide-sm { display: inline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(26,40,31,.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--cream);
+  transition: box-shadow .3s;
+}
+.site-header.is-stuck { box-shadow: 0 10px 30px -18px rgba(0,0,0,.6); }
+.site-header .wrap {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  height: 84px;
+}
+.primary-nav { display: flex; gap: 30px; }
+.primary-nav a {
+  font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase;
+  text-decoration: none; color: rgba(245,243,237,.8); padding: 6px 0; position: relative;
+}
+.primary-nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--brass);
+  transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+}
+.primary-nav a:hover, .primary-nav a[aria-current] { color: var(--cream); }
+.primary-nav a:hover::after, .primary-nav a[aria-current]::after { transform: scaleX(1); }
+.brand { display: block; width: 124px; color: var(--cream); }
+.brand svg { width: 100%; height: auto; display: block; }
+.header-cta { justify-self: end; }
+
+.menu-toggle { display: none; background: none; border: 0; padding: 8px; cursor: pointer; justify-self: start; }
+.menu-toggle span { display: block; width: 24px; height: 1px; background: var(--cream); margin: 6px 0; transition: transform .3s, opacity .3s; }
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.drawer {
+  display: none; background: var(--forest); color: var(--cream);
+  padding: 8px var(--gutter) 28px; border-top: 1px solid rgba(245,243,237,.1);
+}
+.drawer a {
+  display: block; padding: 14px 0; text-decoration: none; border-bottom: 1px solid rgba(245,243,237,.08);
+  font-family: var(--serif); font-size: 24px;
+}
+.drawer .btn { margin-top: 22px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; min-height: min(86vh, 820px); display: flex; align-items: flex-end;
+  color: var(--cream); overflow: hidden; background: var(--forest);
+}
+.hero__img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 40%;
+  transform: scale(1.06); animation: settle 2.4s cubic-bezier(.2,.7,.2,1) forwards;
+}
+@keyframes settle { to { transform: scale(1); } }
+.hero::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(14,22,17,.82) 0%, rgba(14,22,17,.45) 42%, rgba(14,22,17,0) 70%),
+    linear-gradient(0deg, rgba(14,22,17,.75) 0%, rgba(14,22,17,0) 45%);
+}
+.hero .wrap { position: relative; z-index: 1; width: 100%; padding-bottom: clamp(48px, 9vh, 96px); }
+.hero__script { font-size: clamp(34px, 4.4vw, 52px); color: var(--brass-soft); margin: 0 0 4px; line-height: 1; }
+.hero h1 {
+  font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 9vw, 124px);
+  line-height: .92; letter-spacing: -.01em; margin: 0 0 28px;
+}
+.hero p { max-width: 34ch; font-size: clamp(19px, 1.6vw, 22px); color: rgba(245,243,237,.85); margin: 0 0 34px; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero__meta {
+  position: absolute; right: var(--gutter); bottom: clamp(48px, 9vh, 96px); z-index: 1;
+  text-align: right; color: rgba(245,243,237,.7); line-height: 2;
+}
+.hero__meta strong { color: var(--cream); font-weight: 500; }
+
+/* ---------- Intro ---------- */
+.intro { padding: clamp(72px, 10vw, 140px) 0 clamp(56px, 7vw, 96px); }
+.intro .wrap { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+.intro .eyebrow { color: var(--sage); margin: 0 0 18px; }
+.intro h2 {
+  font-weight: 400; font-size: clamp(34px, 4vw, 54px); line-height: 1.08; margin: 0; color: var(--forest);
+}
+.intro h2 em { color: var(--sage); }
+.intro__body p { margin: 0 0 1.1em; font-size: 20px; color: #3b463e; }
+.intro__body p:first-child::first-letter {
+  float: left; font-size: 78px; line-height: .8; padding: 8px 12px 0 0; color: var(--sage);
+}
+.signature { font-family: var(--script); font-size: 34px; color: var(--brass); margin-top: 10px; }
+
+/* ---------- Menu tabs ---------- */
+.menus { padding-bottom: clamp(72px, 9vw, 128px); }
+.tabs {
+  position: sticky; top: 84px; z-index: 40;
+  background: rgba(245,243,237,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.tabs .wrap { display: flex; align-items: stretch; justify-content: center; gap: clamp(20px, 4vw, 56px); }
+.tab-group { display: flex; align-items: center; gap: 4px; }
+.tab-group__label {
+  font-family: var(--script); font-size: 22px; color: var(--brass); margin-right: 12px; white-space: nowrap;
+}
+.tab {
+  position: relative; background: none; border: 0; cursor: pointer;
+  padding: 24px 14px 21px;
+  font-family: var(--sans); font-size: 12.5px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted); white-space: nowrap; transition: color .25s;
+}
+.tab::after {
+  content: ""; position: absolute; left: 14px; right: 14px; bottom: -1px; height: 2px; background: var(--forest);
+  transform: scaleX(0); transition: transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.tab:hover { color: var(--forest); }
+.tab[aria-selected="true"] { color: var(--forest); font-weight: 500; }
+.tab[aria-selected="true"]::after { transform: scaleX(1); }
+.tabs__divider { width: 1px; background: var(--rule); margin: 18px 0; }
+
+/* ---------- Menu layout ---------- */
+.menu-layout {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(32px, 5vw, 80px); padding-top: clamp(40px, 5vw, 72px);
+}
+.menu-visual { position: sticky; top: 172px; align-self: start; }
+.menu-visual__frame {
+  position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--forest);
+}
+.menu-visual__frame img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transition: opacity .7s ease, transform 1.4s cubic-bezier(.2,.7,.2,1);
+}
+.menu-visual__frame img.is-out { opacity: 0; transform: scale(1.04); }
+.menu-visual__caption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 72px 28px 26px;
+  background: linear-gradient(0deg, rgba(14,22,17,.8), rgba(14,22,17,0));
+  color: var(--cream); display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+}
+.menu-visual__caption .script { font-size: 32px; line-height: 1; color: var(--brass-soft); }
+.menu-visual__caption .eyebrow { font-size: 11px; color: rgba(245,243,237,.75); text-align: right; }
+.menu-visual__note {
+  margin-top: 18px; font-size: 16px; font-style: italic; color: var(--muted);
+  display: flex; gap: 12px; align-items: baseline;
+}
+.menu-visual__note::before { content: ""; flex: 0 0 28px; height: 1px; background: var(--brass); transform: translateY(-4px); }
+
+/* ---------- The card ---------- */
+.card {
+  position: relative; background: var(--paper);
+  padding: clamp(40px, 6vw, 84px) clamp(22px, 5.5vw, 76px) clamp(40px, 5vw, 64px);
+  box-shadow: 0 1px 0 rgba(26,40,31,.04), 0 30px 60px -40px rgba(26,40,31,.35);
+}
+.card::before {
+  content: ""; position: absolute; inset: 12px; border: 1px solid rgba(76,107,77,.22); pointer-events: none;
+}
+.card__inner { position: relative; transition: opacity .35s ease, transform .5s cubic-bezier(.2,.7,.2,1); }
+.card__inner.is-out { opacity: 0; transform: translateY(10px); }
+
+.card__head { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
+.card__mark { width: 74px; margin: 0 auto 22px; color: var(--sage); opacity: .9; }
+.card__title {
+  font-weight: 400; font-style: italic; font-size: clamp(44px, 5.4vw, 68px); line-height: 1; margin: 0 0 14px; color: var(--forest);
+}
+.card__sub { color: var(--sage); margin: 0; }
+.card__intro { max-width: 52ch; margin: 22px auto 0; color: var(--muted); font-size: 18px; font-style: italic; }
+
+.price-banner {
+  display: flex; justify-content: center; gap: clamp(24px, 5vw, 64px); margin: 30px auto 0; padding: 20px 0;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); max-width: 480px;
+}
+.price-banner div { text-align: center; }
+.price-banner .eyebrow { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.price-banner strong { font-weight: 500; font-size: 36px; color: var(--forest); line-height: 1; }
+.price-banner small { display: block; margin-top: 4px; font-size: 15px; font-style: italic; color: var(--muted); }
+
+.section + .section { margin-top: clamp(40px, 5vw, 60px); }
+.section__title {
+  display: flex; align-items: center; gap: 18px; margin: 0 0 6px;
+  font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase;
+  color: var(--forest);
+}
+.section__title::before, .section__title::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.section__title span { display: inline-flex; align-items: center; gap: 14px; }
+.section__title span::before, .section__title span::after {
+  content: ""; width: 5px; height: 5px; background: var(--brass); transform: rotate(45deg);
+}
+.section__note { text-align: center; font-style: italic; color: var(--muted); font-size: 17px; max-width: 54ch; margin: 10px auto 0; }
+.items { list-style: none; margin: 22px 0 0; padding: 0; }
+
+.subhead {
+  margin: 30px 0 4px; text-align: center;
+  font-family: var(--script); font-size: 27px; color: var(--sage); line-height: 1.2;
+}
+.subhead small { display: block; font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--muted); }
+.items > .subhead:first-child { margin-top: 8px; }
+
+.item { padding: 13px 0; }
+.item__row { display: flex; align-items: baseline; gap: 12px; }
+.item__name { font-size: 22px; font-weight: 500; line-height: 1.25; color: var(--forest); }
+.item__leader { flex: 1; min-width: 20px; border-bottom: 1px dotted rgba(26,40,31,.28); transform: translateY(-5px); }
+.item__price {
+  font-family: var(--sans); font-size: 16px; font-weight: 500; letter-spacing: .04em; color: var(--forest);
+  font-variant-numeric: lining-nums tabular-nums; white-space: nowrap;
+}
+.item__origin {
+  font-family: var(--sans); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--sage);
+  margin-top: 4px;
+}
+.item__desc { margin: 4px 0 0; font-style: italic; color: var(--muted); font-size: 18px; line-height: 1.45; max-width: 58ch; }
+.item__desc::first-letter { text-transform: uppercase; }
+.item__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin-top: 8px; }
+.tags { display: inline-flex; gap: 5px; flex-wrap: wrap; }
+.tag {
+  display: inline-grid; place-items: center; min-width: 26px; height: 20px; padding: 2px 6px 0;
+  font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--sage); border: 1px solid rgba(76,107,77,.45); border-radius: 10px; cursor: help; text-decoration: none;
+}
+.variants { display: inline-flex; flex-wrap: wrap; gap: 4px 18px; font-family: var(--sans); font-size: 13.5px; color: var(--muted); }
+.variants b { font-weight: 500; color: var(--forest); margin-left: 6px; }
+
+.key {
+  margin-top: clamp(40px, 5vw, 60px); padding-top: 26px; border-top: 1px solid var(--rule);
+  display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: center; font-size: 15px; color: var(--muted);
+}
+.key span { display: inline-flex; align-items: center; gap: 7px; }
+.allergy { text-align: center; font-size: 15px; font-style: italic; color: var(--muted); margin: 14px auto 0; max-width: 60ch; }
+
+/* ---------- Book ---------- */
+.book { background: var(--forest); color: var(--cream); display: grid; grid-template-columns: 1fr 1fr; }
+.book__img { position: relative; min-height: 560px; }
+.book__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.book__body {
+  padding: clamp(56px, 8vw, 120px) clamp(24px, 7vw, 110px);
+  display: flex; flex-direction: column; justify-content: center;
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(76,107,77,.35), transparent 60%),
+    var(--forest);
+}
+.book .script { font-size: 38px; color: var(--brass-soft); margin: 0 0 4px; line-height: 1; }
+.book h2 { font-weight: 400; font-size: clamp(42px, 5vw, 68px); line-height: 1; margin: 0 0 26px; }
+.book p { color: rgba(245,243,237,.78); max-width: 46ch; margin: 0 0 1em; }
+.book__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 18px; }
+.book__facts {
+  display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 28px; margin-top: 44px; padding-top: 28px;
+  border-top: 1px solid rgba(245,243,237,.14);
+}
+.book__facts .eyebrow { font-size: 10.5px; color: var(--brass-soft); display: block; margin-bottom: 6px; }
+.book__facts span:not(.eyebrow) { font-size: 18px; }
+
+/* ---------- Strip ---------- */
+.strip { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.2fr; gap: 6px; background: var(--cream); padding: 6px; }
+.strip figure { margin: 0; overflow: hidden; height: clamp(240px, 32vw, 480px); }
+.strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.strip figure:hover img { transform: scale(1.04); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: #142019; color: rgba(245,243,237,.7); padding: clamp(64px, 8vw, 104px) 0 36px; font-size: 17px; }
+.site-footer .wrap { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+.site-footer .brand { width: 150px; margin-bottom: 22px; }
+.site-footer p { margin: 0 0 1em; max-width: 34ch; }
+.site-footer h3 { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--brass-soft); margin: 8px 0 18px; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; }
+.site-footer li { margin-bottom: 8px; }
+.site-footer a { text-decoration: none; transition: color .2s; }
+.site-footer a:hover { color: var(--cream); }
+.site-footer address { font-style: normal; }
+.footer-base {
+  grid-column: 1 / -1; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  margin-top: 40px; padding-top: 26px; border-top: 1px solid rgba(245,243,237,.1);
+  font-family: var(--sans); font-size: 12px; letter-spacing: .06em; color: rgba(245,243,237,.45);
+}
+
+/* ---------- Reveal ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform 1s cubic-bezier(.2,.7,.2,1); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .tab-group__label { display: none; }
+  .tab { padding-left: 10px; padding-right: 10px; letter-spacing: .16em; }
+  .tab::after { left: 10px; right: 10px; }
+  .tabs .wrap { gap: 12px; }
+}
+@media (max-width: 980px) {
+  .primary-nav, .header-cta .btn span { display: none; }
+  .menu-toggle { display: block; }
+  .drawer.is-open { display: block; }
+  .hero__meta { display: none; }
+  .intro .wrap { grid-template-columns: 1fr; }
+  .tabs .wrap { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; padding-right: 0; }
+  .tabs .wrap::-webkit-scrollbar { display: none; }
+  .tabs { mask-image: linear-gradient(90deg, #000 85%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  .menu-layout { grid-template-columns: 1fr; }
+  .menu-visual { position: relative; top: 0; }
+  .menu-visual__frame { aspect-ratio: 16 / 9; }
+  .menu-visual__note { display: none; }
+  .book { grid-template-columns: 1fr; }
+  .book__img { min-height: 320px; }
+  .strip { grid-template-columns: 1fr 1fr; }
+  .site-footer .wrap { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  body { font-size: 18px; }
+  .topbar .hide-sm { display: none; }
+  .site-header .wrap { height: 68px; }
+  .tabs { top: 68px; }
+  .brand { width: 100px; }
+  .header-cta .btn { padding: 11px 14px 9px; }
+  .hero { min-height: 78vh; }
+  .hero::after { background: linear-gradient(0deg, rgba(14,22,17,.9) 0%, rgba(14,22,17,.35) 60%, rgba(14,22,17,.15) 100%); }
+  .card::before { inset: 8px; }
+  .item__name { font-size: 20px; }
+  .item__desc { font-size: 17px; }
+  .book__facts { grid-template-columns: 1fr 1fr; }
+  .site-footer .wrap { grid-template-columns: 1fr; }
+  .menu-visual__frame { aspect-ratio: 4 / 3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div>
+      <a href="tel:+441143498004">0114 349 8004</a><span class="hide-sm"><span class="sep">|</span>607–609 Ecclesall Road, Sheffield</span>
+    </div>
+    <div>
+      <a href="https://www.gillsonsbrasserie.co.uk/find-us">Find us</a><span class="sep">|</span><a href="mailto:info@gillsonsbrasserie.co.uk">Contact</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header" id="header">
+  <div class="wrap">
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="#menus" aria-current="page">Menus</a>
+      <a href="#menus" data-goto="sunday">Sundays</a>
+      <a href="#menus" data-goto="glass">Wine</a>
+      <a href="https://www.gillsonsbrasserie.co.uk/gift-card">Gift cards</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+    <a class="brand" href="#top" aria-label="Gillson’s Brasserie, home" data-logo></a>
+    <div class="header-cta">
+      <a class="btn btn--ghost" href="https://www.gillsonsbrasserie.co.uk/book-a-table">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="12"/><path d="M1.5 6.5h13M5 1v3M11 1v3"/></svg>
+        <span>Book a table</span>
+      </a>
+    </div>
+  </div>
+  <nav class="drawer" id="drawer" aria-label="Mobile">
+    <a href="#menus">Menus</a>
+    <a href="#menus" data-goto="sunday">Sundays</a>
+    <a href="#menus" data-goto="glass">Wine</a>
+    <a href="https://www.gillsonsbrasserie.co.uk/gift-card">Gift cards</a>
+    <a href="https://www.gillsonsbrasserie.co.uk/find-us">Find us</a>
+    <a class="btn btn--brass" href="https://www.gillsonsbrasserie.co.uk/book-a-table">Book a table</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero__img" src="img/hero.jpg" alt="Crudités served in a silver coupe beside warm sourdough">
+    <div class="wrap">
+      <p class="hero__script script">Food worth returning for</p>
+      <h1>Our Menus</h1>
+      <p>Classic brasserie cooking on Ecclesall Road — clear choices, done properly, every time.</p>
+      <div class="hero__actions">
+        <a class="btn btn--brass" href="#menus">View the menus</a>
+        <a class="btn btn--ghost" href="https://www.gillsonsbrasserie.co.uk/book-a-table">Book a table</a>
+      </div>
+      <div class="hero__meta eyebrow">
+        <strong>Lunch</strong> Mon–Sat, 12–3pm<br>
+        <strong>À la carte</strong> Daily from 12pm<br>
+        <strong>Sunday</strong> Roasts &amp; à la carte
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">What we serve</p>
+        <h2>Dishes that stand the test of time, <em>served with care.</em></h2>
+      </div>
+      <div class="intro__body reveal">
+        <p>Our menus bring together everything we serve at Gillson’s, from weekday lunch and evening dining to Sunday lunch, children’s dishes and drinks. Each one reflects the same approach: classic brasserie cooking, clear choices and consistency across the table.</p>
+        <p>Celebrating a graduation, birthday or anniversary? Take your time to explore what’s on offer and plan your visit. Whether you’re joining us for a quick lunch, a long Sunday or something in between, you’ll find the full details below.</p>
+        <div class="signature">Gillson’s</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menus" id="menus" aria-label="Menus">
+    <div class="tabs">
+      <div class="wrap" role="tablist" aria-label="Choose a menu" id="tablist"></div>
+    </div>
+    <div class="wrap menu-layout">
+      <aside class="menu-visual" aria-hidden="true">
+        <div class="menu-visual__frame" id="visual">
+          <div class="menu-visual__caption">
+            <span class="script" id="visualTitle"></span>
+            <span class="eyebrow" id="visualSub"></span>
+          </div>
+        </div>
+        <p class="menu-visual__note">Please let our team know of any allergies or dietary requirements when booking — we’ll always do what we can.</p>
+      </aside>
+      <article class="card" id="panel" role="tabpanel" tabindex="-1">
+        <div class="card__inner" id="panelInner"></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="book__img"><img src="img/interior.jpg" alt="The dining room at Gillson’s, with green banquettes and brass lamps" loading="lazy"></div>
+    <div class="book__body reveal">
+      <p class="script">We look forward to welcoming you</p>
+      <h2>Book a table</h2>
+      <p>Whether you’re joining us for lunch, dinner or Sunday lunch, our reservation system gives you a clear view of availability so you can plan with confidence.</p>
+      <p>Visiting for a special occasion, a business lunch, or have dietary requirements? Let us know when booking and our team will make your visit feel considered from the moment you arrive.</p>
+      <div class="book__actions">
+        <a class="btn btn--brass" href="https://www.gillsonsbrasserie.co.uk/book-a-table">Reserve now</a>
+        <a class="btn btn--ghost" href="tel:+441143498004">0114 349 8004</a>
+      </div>
+      <div class="book__facts">
+        <div><span class="eyebrow">Find us</span><span>607–609 Ecclesall Rd<br>Sheffield S11 8PT</span></div>
+        <div><span class="eyebrow">Lunch</span><span>Mon–Sat<br>12pm – 3pm</span></div>
+        <div><span class="eyebrow">À la carte</span><span>Served daily<br>from 12pm</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-label="Gallery">
+    <figure><img src="img/service.jpg" alt="A server carrying steak and fries" loading="lazy"></figure>
+    <figure><img src="img/trifle.jpg" alt="PX sherry trifle" loading="lazy"></figure>
+    <figure><img src="img/table.jpg" alt="Guests at a table set with coupes and crudités" loading="lazy"></figure>
+    <figure><img src="img/exterior.jpg" alt="The green shopfront of Gillson’s Brasserie on Ecclesall Road" loading="lazy"></figure>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top" aria-label="Gillson’s Brasserie" data-logo></a>
+      <p>From the team behind Gills &amp; Co and The Gillmont, Gillson’s is a restaurant inspired by classic brasseries, and dishes which stand the test of time.</p>
+    </div>
+    <div>
+      <h3>Visit</h3>
+      <address>607–609 Ecclesall Road<br>Sheffield<br>S11 8PT</address>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="tel:+441143498004">0114 349 8004</a></li>
+        <li><a href="mailto:info@gillsonsbrasserie.co.uk">info@gillsonsbrasserie.co.uk</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="https://www.gillsonsbrasserie.co.uk/book-a-table">Reservations</a></li>
+        <li><a href="https://www.gillsonsbrasserie.co.uk/gift-card">Gift cards</a></li>
+        <li><a href="https://www.gillsonsbrasserie.co.uk/gallery">Gallery</a></li>
+        <li><a href="https://www.gillsonsbrasserie.co.uk/about">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-base">
+      <span>© Gillson’s Brasserie, Sheffield</span>
+      <span>Classic brasserie cooking · Ecclesall Road</span>
+    </div>
+  </div>
+</footer>
+
+<script src="menus.js"></script>
+<script>
+(() => {
+  const LABELS = {
+    v: "Vegetarian", vg: "Vegan", gf: "Gluten free",
+    gfo: "Gluten-free option", vgo: "Vegan option", n: "Contains nuts"
+  };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const slug = id => id === "alacarte" ? "a-la-carte" : id;
+  const menus = window.MENUS;
+
+  // Logo, inlined so it inherits colour.
+  fetch("img/logo.svg").then(r => r.text()).then(svg => {
+    document.querySelectorAll("[data-logo]").forEach(el => el.innerHTML = svg);
+  });
+
+  // Tabs
+  const tablist = document.getElementById("tablist");
+  const groups = { kitchen: "From the kitchen", cellar: "From the cellar" };
+  Object.entries(groups).forEach(([key, label], i) => {
+    if (i) tablist.insertAdjacentHTML("beforeend", '<span class="tabs__divider" aria-hidden="true"></span>');
+    const g = document.createElement("div");
+    g.className = "tab-group";
+    g.innerHTML = `<span class="tab-group__label" aria-hidden="true">${label}</span>` +
+      menus.filter(m => m.group === key).map(m =>
+        `<button class="tab" role="tab" id="tab-${m.id}" aria-controls="panel" aria-selected="false" tabindex="-1" data-id="${m.id}">${esc(m.title)}</button>`
+      ).join("");
+    tablist.appendChild(g);
+  });
+  const tabs = [...tablist.querySelectorAll(".tab")];
+
+  // Menu rendering
+  const mark = `<svg class="card__mark" viewBox="0 0 74 14" fill="none" stroke="currentColor" stroke-width=".8" aria-hidden="true"><path d="M0 7h27M47 7h27"/><path d="M37 1l6 6-6 6-6-6z" fill="currentColor" fill-opacity=".15"/><circle cx="29.5" cy="7" r="1" fill="currentColor"/><circle cx="44.5" cy="7" r="1" fill="currentColor"/></svg>`;
+
+  const variantLabel = v => v.replace(/^Glass \((.+)\)$/, "$1");
+
+  function renderItem(it) {
+    if (it.h) {
+      const [h, ...rest] = it.h.split(" - ");
+      return `<li class="subhead">${esc(h)}${rest.length ? `<small>${esc(rest.join(" – "))}</small>` : ""}</li>`;
+    }
+    const tags = (it.l || []).map(l => `<abbr class="tag" title="${LABELS[l]}">${l}</abbr>`).join("");
+    const variants = it.v && it.v.length
+      ? `<span class="variants">${it.v.map(([n, p]) => `<span>${esc(variantLabel(n))}<b>${esc(p)}</b></span>`).join("")}</span>` : "";
+    return `<li class="item">
+      <div class="item__row">
+        <span class="item__name">${esc(it.n)}</span>
+        ${it.p ? `<span class="item__leader"></span><span class="item__price">${esc(it.p)}</span>` : ""}
+      </div>
+      ${it.o ? `<div class="item__origin">${esc(it.o)}</div>` : ""}
+      ${it.d ? `<p class="item__desc">${esc(it.d)}</p>` : ""}
+      ${tags || variants ? `<div class="item__meta">${variants}${tags ? `<span class="tags">${tags}</span>` : ""}</div>` : ""}
+    </li>`;
+  }
+
+  function renderMenu(m) {
+    let sections = m.sections;
+    let banner = "";
+    if (m.id === "lunch") {
+      const set = sections[0];
+      const courses = set.items.find(i => i.v);
+      const supp = set.items.find(i => /steak/i.test(i.n));
+      banner = `<div class="price-banner">${courses.v.map(([n, p]) =>
+        `<div><span class="eyebrow">${esc(n)}</span><strong>${esc(p)}</strong></div>`).join("")}
+        ${supp ? `<div><span class="eyebrow">Steak supplement</span><strong>${esc(supp.p)}</strong></div>` : ""}</div>`;
+      sections = sections.slice(1);
+    }
+    const used = new Set();
+    sections.forEach(s => s.items.forEach(i => (i.l || []).forEach(l => used.add(l))));
+    const key = used.size
+      ? `<div class="key">${Object.keys(LABELS).filter(k => used.has(k)).map(k =>
+          `<span><abbr class="tag" title="${LABELS[k]}">${k}</abbr>${LABELS[k]}</span>`).join("")}</div>` : "";
+    const allergy = m.group === "kitchen"
+      ? `<p class="allergy">Please let our team know of any allergies or dietary requirements before ordering.</p>`
+      : `<p class="allergy">Wines are subject to availability; vintages may change.</p>`;
+
+    return `
+      <header class="card__head">
+        ${mark}
+        <h2 class="card__title">${esc(m.title)}</h2>
+        <p class="card__sub eyebrow">${esc(m.sub)}</p>
+        ${m.intro ? `<p class="card__intro">${esc(m.intro)}</p>` : ""}
+        ${banner}
+      </header>
+      ${sections.map(s => `
+        <section class="section">
+          <h3 class="section__title"><span>${esc(s.name)}</span></h3>
+          ${s.note ? `<p class="section__note">${esc(s.note)}</p>` : ""}
+          <ul class="items">${s.items.map(renderItem).join("")}</ul>
+        </section>`).join("")}
+      ${key}
+      ${allergy}`;
+  }
+
+  // Visual panel
+  const visual = document.getElementById("visual");
+  const visualTitle = document.getElementById("visualTitle");
+  const visualSub = document.getElementById("visualSub");
+  let currentImg = null;
+  function setVisual(m) {
+    const img = new Image();
+    img.src = m.img;
+    img.alt = "";
+    img.className = "is-out";
+    visual.insertBefore(img, visual.querySelector(".menu-visual__caption"));
+    const prev = currentImg;
+    currentImg = img;
+    const show = () => requestAnimationFrame(() => {
+      img.classList.remove("is-out");
+      if (prev) { prev.classList.add("is-out"); setTimeout(() => prev.remove(), 800); }
+    });
+    img.decode ? img.decode().then(show, show) : (img.onload = show);
+    visualTitle.textContent = m.title;
+    visualSub.textContent = m.group === "kitchen" ? "From the kitchen" : "From the cellar";
+  }
+
+  const panel = document.getElementById("panel");
+  const inner = document.getElementById("panelInner");
+  let active = null;
+
+  function select(id, { scroll = false, push = true } = {}) {
+    const m = menus.find(x => x.id === id) || menus[0];
+    if (active === m.id) { if (scroll) scrollToMenus(); return; }
+    const first = active === null;
+    active = m.id;
+    tabs.forEach(t => {
+      const on = t.dataset.id === m.id;
+      t.setAttribute("aria-selected", on);
+      t.tabIndex = on ? 0 : -1;
+      if (on) {
+        panel.setAttribute("aria-labelledby", t.id);
+        t.scrollIntoView({ block: "nearest", inline: "center", behavior: first ? "auto" : "smooth" });
+      }
+    });
+    setVisual(m);
+    const swap = () => { inner.innerHTML = renderMenu(m); inner.classList.remove("is-out"); };
+    if (first) swap();
+    else { inner.classList.add("is-out"); setTimeout(swap, 220); }
+    if (push) history.replaceState(null, "", "#" + slug(m.id));
+    if (scroll) scrollToMenus();
+  }
+
+  function scrollToMenus() {
+    const tabsEl = document.querySelector(".tabs");
+    const header = document.getElementById("header").offsetHeight;
+    const y = tabsEl.getBoundingClientRect().top + scrollY - header;
+    if (Math.abs(scrollY - y) > 4) scrollTo({ top: y, behavior: "smooth" });
+  }
+
+  tablist.addEventListener("click", e => {
+    const t = e.target.closest(".tab");
+    if (t) select(t.dataset.id, { scroll: true });
+  });
+  tablist.addEventListener("keydown", e => {
+    const i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+    let n = null;
+    if (e.key === "ArrowRight") n = (i + 1) % tabs.length;
+    if (e.key === "ArrowLeft") n = (i - 1 + tabs.length) % tabs.length;
+    if (e.key === "Home") n = 0;
+    if (e.key === "End") n = tabs.length - 1;
+    if (n !== null) { e.preventDefault(); tabs[n].focus(); select(tabs[n].dataset.id); }
+  });
+
+  document.querySelectorAll("[data-goto]").forEach(a => a.addEventListener("click", e => {
+    e.preventDefault();
+    closeDrawer();
+    select(a.dataset.goto, { scroll: true });
+    scrollToMenus();
+  }));
+
+  const fromHash = () => {
+    const h = location.hash.slice(1);
+    return menus.find(m => slug(m.id) === h || m.id === h)?.id;
+  };
+  select(fromHash() || "alacarte", { push: false });
+  addEventListener("hashchange", () => { const id = fromHash(); if (id) select(id, { push: false }); });
+
+  // Header shadow
+  const header = document.getElementById("header");
+  const onScroll = () => header.classList.toggle("is-stuck", scrollY > 40);
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Mobile drawer
+  const toggle = document.querySelector(".menu-toggle");
+  const drawer = document.getElementById("drawer");
+  function closeDrawer() { drawer.classList.remove("is-open"); toggle.setAttribute("aria-expanded", "false"); }
+  toggle.addEventListener("click", () => {
+    const open = !drawer.classList.contains("is-open");
+    drawer.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open);
+  });
+  drawer.querySelectorAll("a:not([data-goto])").forEach(a => a.addEventListener("click", closeDrawer));
+
+  // Reveal on scroll
+  const io = "IntersectionObserver" in window && new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".reveal").forEach(el => io ? io.observe(el) : el.classList.add("is-in"));
+})();
+</script>
+</body>
+</html>
