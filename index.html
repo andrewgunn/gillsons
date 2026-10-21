@@ -181,6 +181,7 @@ button { font: inherit; color: inherit; }
 
 /* ---------- Menu tabs ---------- */
 .menus { padding-bottom: clamp(72px, 9vw, 128px); scroll-margin-top: 84px; }
+.book { scroll-margin-top: 84px; }
 .tabs {
   position: sticky; top: 84px; z-index: 40;
   background: rgba(245,243,237,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -334,7 +335,8 @@ button { font: inherit; color: inherit; }
   border-top: 1px solid rgba(245,243,237,.14);
 }
 .book__facts .eyebrow { font-size: 10.5px; color: var(--brass-soft); display: block; margin-bottom: 6px; }
-.book__facts span:not(.eyebrow) { font-size: 18px; }
+.book__facts span:not(.eyebrow), .book__facts a { font-size: 18px; display: block; text-decoration: none; }
+.book__facts a:hover { color: var(--brass-soft); }
 
 /* ---------- Strip ---------- */
 .strip { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.2fr; gap: 6px; background: var(--cream); padding: 6px; }
@@ -393,7 +395,7 @@ button { font: inherit; color: inherit; }
   .topbar .hide-sm { display: none; }
   .site-header .wrap { height: 68px; }
   .tabs { top: 68px; }
-  .menus { scroll-margin-top: 68px; }
+  .menus, .book { scroll-margin-top: 68px; }
   .brand { width: 100px; }
   .header-cta .btn { padding: 11px 14px 9px; }
   .hero { min-height: 78vh; }
@@ -420,7 +422,7 @@ button { font: inherit; color: inherit; }
       <a href="tel:+441143498004">0114 349 8004</a><span class="hide-sm"><span class="sep">|</span>607–609 Ecclesall Road, Sheffield</span>
     </div>
     <div>
-      <a href="https://www.gillsonsbrasserie.co.uk/find-us">Find us</a><span class="sep">|</span><a href="mailto:info@gillsonsbrasserie.co.uk">Contact</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">Find us</a><span class="sep">|</span><a href="mailto:info@gillsonsbrasserie.co.uk">Contact</a>
     </div>
   </div>
 </div>
@@ -431,12 +433,12 @@ button { font: inherit; color: inherit; }
       <a href="#menus" aria-current="page">Menus</a>
       <a href="#menus" data-goto="sunday">Sundays</a>
       <a href="#menus" data-goto="glass">Wine</a>
-      <a href="https://www.gillsonsbrasserie.co.uk/gift-card">Gift cards</a>
+      <a href="#book">Book</a>
     </nav>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
     <a class="brand" href="#top" aria-label="Gillson’s Brasserie, home" data-logo></a>
     <div class="header-cta">
-      <a class="btn btn--ghost" href="https://www.gillsonsbrasserie.co.uk/book-a-table">
+      <a class="btn btn--ghost" href="#book">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="12"/><path d="M1.5 6.5h13M5 1v3M11 1v3"/></svg>
         <span>Book a table</span>
       </a>
@@ -446,9 +448,8 @@ button { font: inherit; color: inherit; }
     <a href="#menus">Menus</a>
     <a href="#menus" data-goto="sunday">Sundays</a>
     <a href="#menus" data-goto="glass">Wine</a>
-    <a href="https://www.gillsonsbrasserie.co.uk/gift-card">Gift cards</a>
-    <a href="https://www.gillsonsbrasserie.co.uk/find-us">Find us</a>
-    <a class="btn btn--brass" href="https://www.gillsonsbrasserie.co.uk/book-a-table">Book a table</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">Find us</a>
+    <a class="btn btn--brass" href="#book">Book a table</a>
   </nav>
 </header>
 
@@ -461,7 +462,7 @@ button { font: inherit; color: inherit; }
       <p>Classic brasserie cooking on Ecclesall Road — clear choices, done properly, every time.</p>
       <div class="hero__actions">
         <a class="btn btn--brass" href="#menus">View the menus</a>
-        <a class="btn btn--ghost" href="https://www.gillsonsbrasserie.co.uk/book-a-table">Book a table</a>
+        <a class="btn btn--ghost" href="#book">Book a table</a>
       </div>
       <div class="hero__meta eyebrow">
         <strong>Lunch</strong> Mon–Sat, 12–3pm<br>
@@ -510,14 +511,14 @@ button { font: inherit; color: inherit; }
     <div class="book__body reveal">
       <p class="script">We look forward to welcoming you</p>
       <h2>Book a table</h2>
-      <p>Whether you’re joining us for lunch, dinner or Sunday lunch, our reservation system gives you a clear view of availability so you can plan with confidence.</p>
+      <p>Whether you’re joining us for lunch, dinner or Sunday lunch, call or email us and we’ll find you a table.</p>
       <p>Visiting for a special occasion, a business lunch, or have dietary requirements? Let us know when booking and our team will make your visit feel considered from the moment you arrive.</p>
       <div class="book__actions">
-        <a class="btn btn--brass" href="https://www.gillsonsbrasserie.co.uk/book-a-table">Reserve now</a>
+        <a class="btn btn--brass" href="mailto:info@gillsonsbrasserie.co.uk?subject=Table%20reservation">Reserve by email</a>
         <a class="btn btn--ghost" href="tel:+441143498004">0114 349 8004</a>
       </div>
       <div class="book__facts">
-        <div><span class="eyebrow">Find us</span><span>607–609 Ecclesall Rd<br>Sheffield S11 8PT</span></div>
+        <div><span class="eyebrow">Find us</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">607–609 Ecclesall Rd<br>Sheffield S11 8PT</a></div>
         <div><span class="eyebrow">Lunch</span><span>Mon–Sat<br>12pm – 3pm</span></div>
         <div><span class="eyebrow">À la carte</span><span>Served daily<br>from 12pm</span></div>
       </div>
@@ -540,7 +541,7 @@ button { font: inherit; color: inherit; }
     </div>
     <div>
       <h3>Visit</h3>
-      <address>607–609 Ecclesall Road<br>Sheffield<br>S11 8PT</address>
+      <address><a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">607–609 Ecclesall Road<br>Sheffield<br>S11 8PT</a></address>
     </div>
     <div>
       <h3>Contact</h3>
@@ -552,10 +553,11 @@ button { font: inherit; color: inherit; }
     <div>
       <h3>Explore</h3>
       <ul>
-        <li><a href="https://www.gillsonsbrasserie.co.uk/book-a-table">Reservations</a></li>
-        <li><a href="https://www.gillsonsbrasserie.co.uk/gift-card">Gift cards</a></li>
-        <li><a href="https://www.gillsonsbrasserie.co.uk/gallery">Gallery</a></li>
-        <li><a href="https://www.gillsonsbrasserie.co.uk/about">About</a></li>
+        <li><a href="#menus" data-goto="alacarte">Menus</a></li>
+        <li><a href="#menus" data-goto="sunday">Sunday lunch</a></li>
+        <li><a href="#menus" data-goto="bottle">Wine list</a></li>
+        <li><a href="#book">Book a table</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Gillson%E2%80%99s+Brasserie%2C+607+Ecclesall+Road%2C+Sheffield+S11+8PT" target="_blank" rel="noopener">Find us</a></li>
       </ul>
     </div>
     <div class="footer-base">
